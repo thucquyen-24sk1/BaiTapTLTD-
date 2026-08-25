@@ -1,0 +1,29 @@
+
+import kotlin.math.max
+fun main() {
+    val hoTen = "Nguyễn Thị Thục Quyên"
+    val maSV = "2415141122115"
+    val lopSH = "24SK1"
+    val lopHP = "126TLTDĐ02"
+   
+    val diemMath = 8.0
+    val diemProgramming = 7.0
+    val diemDatabase = 6.0
+    
+    val tongDiem = diemMath + diemProgramming + diemDatabase
+    val diemTB = tongDiem/3.0
+    val diemMax = max(diemMath, max(diemProgramming,diemDatabase))
+    println("Họ và tên:     ${hoTen}")
+    println("Mã sinh viên:  ${maSV}")
+    println("Lớp sinh hoạt: ${lopSH}")
+    println("Lớp học phần:  ${lopHP}")
+    println("Điểm math: ${diemMath} | Điểm programming: ${diemProgramming} | Điểm database: ${diemDatabase}")
+    println("Tổng điểm: ${tongDiem}")
+    println("Điểm trung bình: ${diemTB}")
+    println("Điểm max: ${diemMax}")
+    if(diemTB > 5.0)
+    {
+        println("Sinh viên đạt.")}else
+    {
+        println("Sinh viên không đạt")}
+}
