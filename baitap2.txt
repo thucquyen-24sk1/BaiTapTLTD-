@@ -1,0 +1,29 @@
+package com.example.baitap
+
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.baitap.databinding.ActivityMainBinding
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+       binding = ActivityMainBinding.inflate(layoutInflater)
+        
+        // Truyền root view vào setContentView
+        setContentView(binding.root)
+
+        // Sử dụng các view thông qua biến binding
+        binding.btnClick.setOnClickListener {
+            val name = binding.edtInput.text.toString()
+            if (name.isNotEmpty()) {
+                binding.txtResult.text = "Xin chào, $name!"
+            } else {
+                binding.edtInput.error = "Vui lòng nhập thông tin!"
+            }
+        }
+    }
+}
