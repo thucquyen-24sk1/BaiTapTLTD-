@@ -28,15 +28,14 @@ class ChinhSuaChiTieuActivity : AppCompatActivity() {
         btnLuu_115 = findViewById(R.id.btnLuu_115)
         btnHuy_115 = findViewById(R.id.btnHuy_115)
 
-        // Nhận dữ liệu cũ từ Intent của màn hình chi tiết
-        val tenCu_115 = intent.getStringExtra("EXTRA_TEN")
-        val soTienCu_115 = intent.getDoubleExtra("EXTRA_SOTIEN", 0.0)
-        val ghiChuCu_115 = intent.getStringExtra("EXTRA_GHICHU")
+        // Nhận đối tượng KhoanChi_115 cũ từ màn hình chi tiết
+        val khoanChiCu_115 = intent.getSerializableExtra("EXTRA_KHOAN_CHI") as? KhoanChi_115
 
-        // Hiển thị dữ liệu cũ lên các ô nhập
-        edtEditTen_115.setText(tenCu_115)
-        edtEditSoTien_115.setText(soTienCu_115.toString())
-        edtEditGhiChu_115.setText(ghiChuCu_115)
+        if (khoanChiCu_115 != null) {
+            edtEditTen_115.setText(khoanChiCu_115.tenKhoanChi_115)
+            edtEditSoTien_115.setText(khoanChiCu_115.soTien_115.toString())
+            edtEditGhiChu_115.setText(khoanChiCu_115.ghiChu_115)
+        }
 
         // Xử lý nút Lưu thay đổi
         btnLuu_115.setOnClickListener {
@@ -51,15 +50,22 @@ class ChinhSuaChiTieuActivity : AppCompatActivity() {
 
             val soTienMoi_115 = soTienStr_115.toDoubleOrNull()
             if (soTienMoi_115 == null || soTienMoi_115 <= 0.0) {
-                Toast.makeText(this, "Số tiền phải là số hợp lệ và lớn hơn 0!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Số tiền phải lớn hơn 0 và hợp lệ!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Đóng gói dữ liệu mới trả về bằng Intent Result
+            // Tạo đối tượng KhoanChi_115 mới truyền đủ 5 tham số
+            val khoanChiMoi_115 = KhoanChi_115(
+                maKhoanChi_115 = khoanChiCu_115?.maKhoanChi_115 ?: "MC01",
+                tenKhoanChi_115 = tenMoi_115,
+                soTien_115 = soTienMoi_115,
+                ghiChu_115 = ghiChuMoi_115,
+                daThanhToan_115 = khoanChiCu_115?.daThanhToan_115 ?: false
+            )
+
+            // Trả đối tượng mới về thông qua Intent kết quả
             val resultIntent_115 = Intent().apply {
-                putExtra("EXTRA_TEN_MOI", tenMoi_115)
-                putExtra("EXTRA_SOTIEN_MOI", soTienMoi_115)
-                putExtra("EXTRA_GHICHU_MOI", ghiChuMoi_115)
+                putExtra("EXTRA_KHOAN_CHI", khoanChiMoi_115)
             }
             setResult(Activity.RESULT_OK, resultIntent_115)
             finish()
