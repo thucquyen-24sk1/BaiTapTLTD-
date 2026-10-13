@@ -7,12 +7,20 @@ class KhoanChi_115(
     var tenKhoanChi_115: String,
     var soTien_115: Double,
     var ghiChu_115: String,
-    var daThanhToan_115: Boolean
+    var daThanhToan_115: Boolean,
+    var loaiChi_115: String = "Khác"
 ) : Serializable {
 
     fun layThongTin_115(): String {
-        val trangThaiText_115 = if (daThanhToan_115) "Đã thanh toán" else "Chưa thanh toán"
-        return "Mã: $maKhoanChi_115\nTên: $tenKhoanChi_115\nSố tiền: $soTien_115 VNĐ\nGhi chú: $ghiChu_115\nTrạng thái: $trangThaiText_115"
+        val trangThaiText_115 =
+            if (daThanhToan_115) "Đã thanh toán" else "Chưa thanh toán"
+
+        return "Mã: $maKhoanChi_115\n" +
+                "Tên: $tenKhoanChi_115\n" +
+                "Loại chi: $loaiChi_115\n" +
+                "Số tiền: $soTien_115 VNĐ\n" +
+                "Ghi chú: $ghiChu_115\n" +
+                "Trạng thái: $trangThaiText_115"
     }
 
     fun laSoTienHopLe_115(): Boolean {

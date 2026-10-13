@@ -13,6 +13,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var edtGhiChu_115: EditText
     private lateinit var btnThemKhoanChi_115: Button
     private lateinit var btnXemChiTiet_115: Button
+
+    private lateinit var edtLoaiChi_115: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         edtGhiChu_115 = findViewById(R.id.edtGhiChu_115)
         btnThemKhoanChi_115 = findViewById(R.id.btnThemKhoanChi_115)
         btnXemChiTiet_115 = findViewById(R.id.btnXemChiTiet_115)
+        edtLoaiChi_115 = findViewById(R.id.edtLoaiChi_115)
     }
 
 
@@ -38,6 +42,8 @@ class MainActivity : AppCompatActivity() {
             val ten_115 = edtTenKhoanChi_115.text.toString().trim()
             val soTienStr_115 = edtSoTien_115.text.toString().trim()
             val ghiChu_115 = edtGhiChu_115.text.toString().trim()
+            val loaiChi_115 =
+                edtLoaiChi_115.text.toString().trim().ifEmpty { "Khác" }
 
             // Kiểm tra tên khoản chi
             if (ten_115.isEmpty()) {
@@ -63,13 +69,16 @@ class MainActivity : AppCompatActivity() {
             }
 
             // Khởi tạo đối tượng khoản chi
+
             val khoanChi_115 = KhoanChi_115(
                 maKhoanChi_115 = "KC001",
                 tenKhoanChi_115 = ten_115,
                 soTien_115 = soTien_115,
                 ghiChu_115 = ghiChu_115,
-                daThanhToan_115 = false
+                daThanhToan_115 = false,
+                loaiChi_115 = loaiChi_115
             )
+
 
             // Kiểm tra bằng phương thức của lớp KhoanChi_115
             if (!khoanChi_115.laSoTienHopLe_115()) {
@@ -92,6 +101,8 @@ class MainActivity : AppCompatActivity() {
             val ten_115 = edtTenKhoanChi_115.text.toString().trim()
             val soTienStr_115 = edtSoTien_115.text.toString().trim()
             val ghiChu_115 = edtGhiChu_115.text.toString().trim()
+            val loaiChi_115 =
+                edtLoaiChi_115.text.toString().trim().ifEmpty { "Khác" }
 
             if (ten_115.isEmpty()) {
                 edtTenKhoanChi_115.error = "Vui lòng nhập tên khoản chi"
@@ -107,13 +118,18 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+
+
             val khoanChi_115 = KhoanChi_115(
                 maKhoanChi_115 = "KC001",
                 tenKhoanChi_115 = ten_115,
                 soTien_115 = soTien_115,
                 ghiChu_115 = ghiChu_115,
-                daThanhToan_115 = false
+                daThanhToan_115 = false,
+                loaiChi_115 = loaiChi_115
             )
+
+
 
             val intent_115 = Intent(
                 this,
@@ -125,6 +141,7 @@ class MainActivity : AppCompatActivity() {
                 putExtra("EXTRA_SOTIEN", soTien_115)
                 putExtra("EXTRA_GHICHU", ghiChu_115)
                 putExtra("EXTRA_DA_THANH_TOAN", false)
+                putExtra("EXTRA_LOAI_CHI", loaiChi_115)
             }
 
             startActivity(intent_115)

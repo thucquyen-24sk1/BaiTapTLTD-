@@ -19,6 +19,8 @@ class ChinhSuaChiTieuActivity : AppCompatActivity() {
     private lateinit var btnLuu_115: Button
     private lateinit var btnHuy_115: Button
 
+    private lateinit var edtEditLoaiChi_115: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chinh_sua_chi_tieu)
@@ -29,6 +31,7 @@ class ChinhSuaChiTieuActivity : AppCompatActivity() {
         edtEditTen_115 = findViewById(R.id.edtEditTen_115)
         edtEditSoTien_115 = findViewById(R.id.edtEditSoTien_115)
         edtEditGhiChu_115 = findViewById(R.id.edtEditGhiChu_115)
+        edtEditLoaiChi_115 = findViewById(R.id.edtEditLoaiChi_115)
         chkThanhToan_115 = findViewById(R.id.chkThanhToan_115)
         btnLuu_115 = findViewById(R.id.btnLuu_115)
         btnHuy_115 = findViewById(R.id.btnHuy_115)
@@ -37,6 +40,8 @@ class ChinhSuaChiTieuActivity : AppCompatActivity() {
         val tenCu_115 = intent.getStringExtra("EXTRA_TEN") ?: ""
         val soTienCu_115 = intent.getDoubleExtra("EXTRA_SOTIEN", 0.0)
         val ghiChuCu_115 = intent.getStringExtra("EXTRA_GHICHU") ?: ""
+        val loaiChiCu_115 =
+            intent.getStringExtra("EXTRA_LOAI_CHI") ?: "Khác"
         val daThanhToanCu_115 =
             intent.getBooleanExtra("EXTRA_DA_THANH_TOAN", false)
 
@@ -45,12 +50,15 @@ class ChinhSuaChiTieuActivity : AppCompatActivity() {
         edtEditSoTien_115.setText(soTienCu_115.toString())
         edtEditGhiChu_115.setText(ghiChuCu_115)
         chkThanhToan_115.isChecked = daThanhToanCu_115
+        edtEditLoaiChi_115.setText(loaiChiCu_115)
 
         // Lưu thay đổi
         btnLuu_115.setOnClickListener {
             val tenMoi_115 = edtEditTen_115.text.toString().trim()
             val soTienStr_115 = edtEditSoTien_115.text.toString().trim()
             val ghiChuMoi_115 = edtEditGhiChu_115.text.toString().trim()
+            val loaiChiMoi_115 =
+                edtEditLoaiChi_115.text.toString().trim().ifEmpty { "Khác" }
 
             if (tenMoi_115.isEmpty()) {
                 edtEditTen_115.error = "Tên khoản chi không được để trống"
@@ -69,6 +77,7 @@ class ChinhSuaChiTieuActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+
             val resultIntent_115 = Intent().apply {
                 putExtra("EXTRA_TEN_MOI", tenMoi_115)
                 putExtra("EXTRA_SOTIEN_MOI", soTienMoi_115)
@@ -77,7 +86,10 @@ class ChinhSuaChiTieuActivity : AppCompatActivity() {
                     "EXTRA_DA_THANH_TOAN_MOI",
                     chkThanhToan_115.isChecked
                 )
+                putExtra("EXTRA_LOAI_CHI_MOI", loaiChiMoi_115)
             }
+
+
 
             setResult(Activity.RESULT_OK, resultIntent_115)
             finish()

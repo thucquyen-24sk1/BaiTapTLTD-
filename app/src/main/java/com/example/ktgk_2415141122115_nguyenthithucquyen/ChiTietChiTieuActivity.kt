@@ -18,7 +18,7 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
     private var soTien_115 = 0.0
     private var ghiChu_115 = ""
     private var daThanhToan_115 = false
-
+    private var loaiChi_115 = "Khác"
     private val suaKhoanChiLauncher_115 =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
@@ -41,7 +41,9 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
                     ghiChu_115 =
                         data_115.getStringExtra("EXTRA_GHICHU_MOI")
                             ?: ghiChu_115
-
+                    loaiChi_115 =
+                        data_115.getStringExtra("EXTRA_LOAI_CHI_MOI")
+                            ?: loaiChi_115
                     daThanhToan_115 = data_115.getBooleanExtra(
                         "EXTRA_DA_THANH_TOAN_MOI",
                         daThanhToan_115
@@ -80,9 +82,11 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
         ghiChu_115 =
             intent.getStringExtra("EXTRA_GHICHU") ?: ""
 
+        loaiChi_115 =
+            intent.getStringExtra("EXTRA_LOAI_CHI") ?: "Khác"
+
         daThanhToan_115 =
             intent.getBooleanExtra("EXTRA_DA_THANH_TOAN", false)
-
         hienThiThongTin_115()
 
         // Mở màn hình chỉnh sửa
@@ -96,6 +100,7 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
                 putExtra("EXTRA_SOTIEN", soTien_115)
                 putExtra("EXTRA_GHICHU", ghiChu_115)
                 putExtra("EXTRA_DA_THANH_TOAN", daThanhToan_115)
+                putExtra("EXTRA_LOAI_CHI", loaiChi_115)
             }
 
             suaKhoanChiLauncher_115.launch(intentSua_115)
@@ -107,6 +112,8 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
             finish()
         }
     }
+
+
 
 
 
@@ -123,12 +130,15 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
             } else {
                 """
             Tên khoản chi: $tenKhoanChi_115
+            Loại chi: $loaiChi_115
             Số tiền: $soTien_115 VNĐ
             Ghi chú: ${ghiChu_115.ifBlank { "Không có" }}
             Trạng thái: $trangThai_115
             """.trimIndent()
             }
     }
+
+
 
 
 }
