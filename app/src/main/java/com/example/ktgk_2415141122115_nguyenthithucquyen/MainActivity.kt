@@ -1,20 +1,57 @@
 package com.example.ktgk_2415141122115_nguyenthithucquyen
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var edtTenKhoanChi_115: EditText
+    private lateinit var edtSoTien_115: EditText
+    private lateinit var edtGhiChu_115: EditText
+    private lateinit var btnThemKhoanChi_115: Button
+    private lateinit var btnXemChiTiet_115: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        // Thiết lập tiêu đề Toolbar
+        supportActionBar?.title = "Nguyễn Thị Thục Quyên - 2415141122115 - Quản lý chi tiêu cá nhân"
+
+        khoiTaoGiaoDien_115()
+        xuLySuKien_115()
+    }
+
+    private fun khoiTaoGiaoDien_115() {
+        edtTenKhoanChi_115 = findViewById(R.id.edtTenKhoanChi_115)
+        edtSoTien_115 = findViewById(R.id.edtSoTien_115)
+        edtGhiChu_115 = findViewById(R.id.edtGhiChu_115)
+        btnThemKhoanChi_115 = findViewById(R.id.btnThemKhoanChi_115)
+        btnXemChiTiet_115 = findViewById(R.id.btnXemChiTiet_115)
+    }
+
+    private fun xuLySuKien_115() {
+        btnThemKhoanChi_115.setOnClickListener {
+            val ten_115 = edtTenKhoanChi_115.text.toString().trim()
+            val soTienStr_115 = edtSoTien_115.text.toString().trim()
+
+            if (ten_115.isEmpty() || soTienStr_115.isEmpty()) {
+                Toast.makeText(this, "Vui lòng nhập đầy đủ tên và số tiền!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Thêm khoản chi thành công!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btnXemChiTiet_115.setOnClickListener {
+            val ten_115 = edtTenKhoanChi_115.text.toString().trim()
+            val soTienStr_115 = edtSoTien_115.text.toString().trim()
+
+            if (ten_115.isEmpty() || soTienStr_115.isEmpty()) {
+                Toast.makeText(this, "Chưa có dữ liệu để xem chi tiết!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Chuẩn bị chuyển sang chi tiết...", Toast.LENGTH_SHORT).show()
+            }
         }
     }
-}
+    }
