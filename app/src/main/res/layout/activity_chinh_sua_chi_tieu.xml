@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:fillViewport="true">
 
-    <EditText
-        android:id="@+id/edtEditTen_115"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên khoản chi"/>
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <EditText
-        android:id="@+id/edtEditSoTien_115"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Số tiền"
-        android:inputType="numberDecimal"/>
+        <EditText
+            android:id="@+id/edtEditTen_115"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập tên khoản chi mới"
+            android:inputType="text"/>
 
-    <EditText
-        android:id="@+id/edtEditGhiChu_115"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ghi chú"/>
+        <EditText
+            android:id="@+id/edtEditSoTien_115"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập số tiền mới"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="12dp"/>
 
-    <CheckBox
-        android:id="@+id/chkThanhToan_115"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đã thanh toán"
-        android:layout_marginTop="8dp"/>
+        <EditText
+            android:id="@+id/edtEditGhiChu_115"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập ghi chú mới"
+            android:inputType="text"
+            android:layout_marginTop="12dp"/>
 
-    <Button
-        android:id="@+id/btnLuu_115"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lưu thay đổi"
-        android:layout_marginTop="16dp"/>
+        <Button
+            android:id="@+id/btnLuu_115"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lưu thay đổi"
+            android:layout_marginTop="24dp"/>
 
-    <Button
-        android:id="@+id/btnHuy_115"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hủy"
-        android:layout_marginTop="8dp"/>
+        <Button
+            android:id="@+id/btnHuy_115"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hủy"
+            android:layout_marginTop="8dp"/>
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
