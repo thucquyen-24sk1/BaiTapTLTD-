@@ -46,11 +46,17 @@ class MainActivity : AppCompatActivity() {
         btnXemChiTiet_115.setOnClickListener {
             val ten_115 = edtTenKhoanChi_115.text.toString().trim()
             val soTienStr_115 = edtSoTien_115.text.toString().trim()
+            val ghiChu_115 = edtGhiChu_115.text.toString().trim()
 
             if (ten_115.isEmpty() || soTienStr_115.isEmpty()) {
                 Toast.makeText(this, "Chưa có dữ liệu để xem chi tiết!", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Chuẩn bị chuyển sang chi tiết...", Toast.LENGTH_SHORT).show()
+                val intent_115 = Intent(this, ChiTietChiTieuActivity::class.java).apply {
+                    putExtra("EXTRA_TEN", ten_115)
+                    putExtra("EXTRA_SOTIEN", soTienStr_115.toDouble())
+                    putExtra("EXTRA_GHICHU", ghiChu_115)
+                }
+                startActivity(intent_115)
             }
         }
     }
