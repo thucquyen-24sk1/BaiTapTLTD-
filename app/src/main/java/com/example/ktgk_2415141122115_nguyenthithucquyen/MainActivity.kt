@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         // Thiết lập tiêu đề Toolbar
         supportActionBar?.title = "Nguyễn Thị Thục Quyên - 2415141122115 - Quản lý chi tiêu cá nhân"
 
@@ -35,12 +36,42 @@ class MainActivity : AppCompatActivity() {
         btnThemKhoanChi_115.setOnClickListener {
             val ten_115 = edtTenKhoanChi_115.text.toString().trim()
             val soTienStr_115 = edtSoTien_115.text.toString().trim()
+            val ghiChu_115 = edtGhiChu_115.text.toString().trim()
 
             if (ten_115.isEmpty() || soTienStr_115.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập đầy đủ tên và số tiền!", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Thêm khoản chi thành công!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Vui lòng nhập đầy đủ tên và số tiền!",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
             }
+
+            val soTien_115 = soTienStr_115.toDoubleOrNull()
+
+            if (soTien_115 == null) {
+                Toast.makeText(this, "Số tiền phải là số hợp lệ!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val khoanChi_115 = KhoanChi_115(
+                maKhoanChi_115 = "KC001",
+                tenKhoanChi_115 = ten_115,
+                soTien_115 = soTien_115,
+                ghiChu_115 = ghiChu_115,
+                daThanhToan_115 = false
+            )
+
+            if (!khoanChi_115.laSoTienHopLe_115()) {
+                Toast.makeText(this, "Số tiền phải lớn hơn 0!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            Toast.makeText(
+                this,
+                khoanChi_115.layThongTin_115(),
+                Toast.LENGTH_LONG
+            ).show()
         }
 
         btnXemChiTiet_115.setOnClickListener {
