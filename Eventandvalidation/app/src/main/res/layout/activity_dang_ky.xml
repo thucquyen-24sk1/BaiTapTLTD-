@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DANG KY SINH VIEN"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/edtHoTen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ho va ten"
+            android:inputType="textPersonName"
+            android:maxLines="1" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1" />
+
+        <EditText
+            android:id="@+id/edtSDT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="So dien thoai"
+            android:inputType="phone"
+            android:maxLines="1" />
+
+        <EditText
+            android:id="@+id/edtMSV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ma so sinh vien"
+            android:inputType="number"
+            android:maxLines="1" />
+
+        <EditText
+            android:id="@+id/edtLop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lop"
+            android:inputType="textCapCharacters"
+            android:maxLines="1" />
+
+        <Button
+            android:id="@+id/btnDangKy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dang ky" />
+
+        <Button
+            android:id="@+id/btnSangChiTiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sang man hinh Chi tiet" />
+
+    </LinearLayout>
+</ScrollView>
