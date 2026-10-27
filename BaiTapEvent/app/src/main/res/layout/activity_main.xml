@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EAF7F4"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="EVENT REGISTRATION"
+            android:textColor="#146C60"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nhập thông tin và đăng ký tham gia"
+            android:textColor="#64817B"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- THONG TIN CA NHAN -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="01. THÔNG TIN CÁ NHÂN"
+                android:textColor="#146C60"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/edtHoTen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Họ và tên"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:padding="12dp" />
+
+            <EditText
+                android:id="@+id/edtMaSV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mã sinh viên"
+                android:inputType="text"
+                android:singleLine="true"
+                android:padding="12dp"
+                android:layout_marginTop="8dp" />
+
+            <EditText
+                android:id="@+id/edtLop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lớp học"
+                android:inputType="text"
+                android:singleLine="true"
+                android:padding="12dp"
+                android:layout_marginTop="8dp" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email sinh viên"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:padding="12dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Giới tính"
+                android:textColor="#263D39"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginTop="18dp" />
+
+            <RadioGroup
+                android:id="@+id/rgGioiTinh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbNam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nam"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/rbNu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nữ"
+                    android:padding="8dp"
+                    android:layout_marginStart="24dp" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- MANG XA HOI -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="#FFFFFF"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="02. MẠNG XÃ HỘI YÊU THÍCH"
+                android:textColor="#146C60"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/cbFacebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facebook"
+                android:padding="5dp" />
+
+            <CheckBox
+                android:id="@+id/cbInstagram"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Instagram"
+                android:padding="5dp" />
+
+            <CheckBox
+                android:id="@+id/cbTikTok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TikTok"
+                android:padding="5dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDangKy"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:text="ĐĂNG KÝ THAM GIA"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#146C60" />
+    </LinearLayout>
+</ScrollView>
